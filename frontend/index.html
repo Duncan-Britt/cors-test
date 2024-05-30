@@ -46,7 +46,8 @@
          })
              .then(response => response.json())
              .then(data => {
-                 document.getElementById('postResult').textContent = data.processed_data;
+                 console.log(data.processed_data);
+                 document.getElementById('postResult').textContent = data.processed_data.data;
              })
              .catch(error => {
                  console.error('Error:', error);

@@ -18,8 +18,13 @@ def receive_data():
     return jsonify({'processed_data': processed_data})
 
 def process_data(data):
-    # Perform some processing on the data
-    processed_data = data.upper()
+    # Apply upper() to all string values in the dictionary
+    processed_data = {}
+    for key, value in data.items():
+        if isinstance(value, str):
+            processed_data[key] = value.upper()
+        else:
+            processed_data[key] = value
     return processed_data
 
 if __name__ == '__main__':
